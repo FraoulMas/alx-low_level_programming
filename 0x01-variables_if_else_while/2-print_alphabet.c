@@ -5,7 +5,6 @@
  *Description: a program that prints the alphabet in lowercase
  *Return:
  */
-
 int main(void)
 {
 	char c = 'a';
