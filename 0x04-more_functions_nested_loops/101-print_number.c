@@ -1,37 +1,40 @@
 #include "main.h"
-
 /**
-* print_number - function that prints an integer..
-* @n: input value to check
-* Return: nothing.
-*/
-
+ * print_number-prints an intiger
+ * @l-floating nums
+ * @j-digit
+ * @k-unsigned n
+ * @n: the number to be printed as a _putchar form
+ * Return: void
+ */
 void print_number(int n)
 {
-unsigned int num, num2;
-int i;
-int aux = 1;
+	unsigned int i, j, k = n;
+	double l = 1;
 
-if (n < 0)
-{
-n = n * -1;
-_putchar('-');
-}
-num = n;
-num2 = num;
-if (num > 9)
-{
-while (num >= 10)
-{
-aux = aux * 10;
-num = num / 10;
-}
-_putchar((num2 / aux) + '0');
-aux = aux / 10;
+	if (n == 0)
+	{
+		_putchar('0');
+	}
+	else
+	{
+		if (n < 0)
+		{
+			k = n * -1;
+			_putchar('-');
+		}
 
-for (i = aux; i >= 1; i = i / 10)
-_putchar((num2 / i) % 10 + '0');
-}
-else
-_putchar(num + '0');
+		while (l <= k)
+			l *= 10;
+
+		i = l / 10;
+
+		while (i >= 1)
+		{
+			j = k / i;
+			_putchar(j + '0');
+			k = (k - (i * j));
+			i /= 10;
+		}
+	}
 }
