@@ -1,31 +1,35 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 /**
- * print_number - that prints an integer
- * @n: number to string
- * Returnn: nothing
+ * print_number - function that prints an integer
+ *
+ * @n: int type var
+ *
+ * Return: Nothing
  */
-
 void print_number(int n)
 {
-	int pot_10 = 1, sign = 1, tmp = n;
+	int adjustor, sign;
 
-	while (tmp / 10)
+	adjustor = 1000000000;
+	sign = 1;
+	if (n > 0)
 	{
-		pot_10 *= 10;
-		tmp /= 10;
+		n = n * -1;
+		sign = sign * -1;
 	}
-
-	if (tmp < 0)
+	if (n != 0)
 	{
-		sign *= -1;
-		_putchar('-');
+		while (n / adjustor == 0)
+			adjustor = adjustor / 10;
+		if (sign == 1)
+			_putchar('-');
+		while (adjustor >= 1)
+		{
+			_putchar(-(n / adjustor) + '0');
+			n = n % adjustor;
+			adjustor = adjustor / 10;
+		}
 	}
-	while (pot_10 > 0)
-	{
-		tmp = n / pot_10;
-		_putchar((tmp * sign) + '0');
-		n = n - (tmp * pot_10);
-		pot_10 /= 10;
-	}
+	else
+		_putchar('0');
 }
