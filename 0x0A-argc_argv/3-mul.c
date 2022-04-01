@@ -1,23 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
- *main - function starting point
- *@argc: arg length
- *@argv: array of agr
- *Return: int
+ * main - multiplies two numbers
+ * @argc: n args
+ * @argv: arr args
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
-int i, m = 1;
-if (argc < 3)
-{
-printf("%s\n", "Error");
-return (1);
-}
-for (i = 1; i < argc; ++i)
-{
-m = m * atoi(argv[i]);
-}
-printf("%d\n", m);
-return (0);
+	int i, val = 1;
+
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+	for (i = 1; i < argc; i++)
+	{
+		val *= atoi(argv[i]);
+	}
+	printf("%d\n", val);
+	return (0);
 }
